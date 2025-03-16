@@ -3,6 +3,11 @@
 # set -e
 set -x
 
+if [ ! -d src ]; then {
+    printf "这个目录看起来并不是SPT目录"
+    exit 1
+} fi
+
 # 对于src/下每一项
 for work_dir in src/*; do {
     # 格式化这些项
@@ -111,20 +116,22 @@ for work_dir in obj/work/*; do {
         mkdir -p "build/work/$work/$art/"
 
         # 写入obj art对应的页面
-        touch "build/work/$work/$art/index.md"
-        {
-            printf '### **%s**'"\\n"    "$art_title"
-            printf "\\n"
-            printf '**%s**'"\\n"        "$work_title"
-            printf "\\n"
-            printf '%s年%s月%s日'"\\n"  "$art_year" "$art_month" "$art_day"
-            printf "\\n"
-            for include in $include_list; do {
-                printf '![](%s)'"\\n"   "$include"
+        if [ ! -f "src/$work/$art/index.md" ]; then {
+            touch "build/work/$work/$art/index.md"
+            {
+                printf '### **%s**'"\\n"    "$art_title"
                 printf "\\n"
-            } done
-        } >> "build/work/$work/$art/index.md"
-
+                printf '**[%s](%s)**'"\\n"        "$work_title" "work/$work"
+                printf "\\n"
+                printf '%s年%s月%s日'"\\n"  "$art_year" "$art_month" "$art_day"
+                printf "\\n"
+                for include in $include_list; do {
+                    printf '![](%s)'"\\n"   "$include"
+                    printf "\\n"
+                } done
+            } >> "build/work/$work/$art/index.md"
+        } fi
+        
         # 从src art目录中复制include到对应的build art目录中
         for include in $include_list; do {
             cp "src/$work/$art/$include" "build/work/$work/$art/"
