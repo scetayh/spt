@@ -153,7 +153,7 @@ touch build/index.md
     printf "\\n"
     printf '### **斯迪克平台 Sdick Platform(beta)**'"\\n"
     printf "\\n"
-    printf '**Dickmates欢迎您完善迪克系列☆和我签订契约，成为~~大迪克~~答题卡吧！**'"\\n"
+    printf '**Dickmates欢迎您完善迪克系列☆和我签订契约，成为~~大迪克~~答题卡吧～**'"\\n"
     printf "\\n"
     for year in $(ls -r obj/date); do {
         for month in $(ls -r "obj/date/$year"); do {
