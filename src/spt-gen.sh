@@ -121,7 +121,7 @@ for work_dir in obj/work/*; do {
             {
                 printf '### **%s**'"\\n"    "$art_title"
                 printf "\\n"
-                printf '**[%s](%s)**'"\\n"        "$work_title" "work/$work"
+                printf '**[%s](%s)**'"\\n"        "$work_title" ".."
                 printf "\\n"
                 printf '%s年%s月%s日'"\\n"  "$art_year" "$art_month" "$art_day"
                 printf "\\n"
