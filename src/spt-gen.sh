@@ -121,7 +121,7 @@ for work_dir in obj/work/*; do {
             {
                 printf '### **%s**'"\\n"    "$art_title"
                 printf "\\n"
-                printf '**[%s](%s)**'"\\n"        "$work_title" "work/$work"
+                printf '**[%s](%s)**'"\\n"        "$work_title" ".."
                 printf "\\n"
                 printf '%s年%s月%s日'"\\n"  "$art_year" "$art_month" "$art_day"
                 printf "\\n"
@@ -153,7 +153,7 @@ touch build/index.md
     printf "\\n"
     printf '### **斯迪克平台 Sdick Platform(beta)**'"\\n"
     printf "\\n"
-    printf '**Dickmates欢迎您完善迪克系列☆和我签订契约，成为~~大迪克~~答题卡吧！**'"\\n"
+    printf '**Dickmates欢迎您完善迪克系列☆和我签订契约，成为~~大迪克~~答题卡吧～**'"\\n"
     printf "\\n"
     for year in $(ls -r obj/date); do {
         for month in $(ls -r "obj/date/$year"); do {
